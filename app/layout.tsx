@@ -92,7 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       {/* Tip: Aquí podrías agregar la clase de tu fuente variable si usas next/font 
         Ejemplo: <body className={varienFont.className}> 
       */}
-      <body>{children}</body>
+      <body className="bg-oxford-blue">{children}</body>
     </html>
   )
 }
