@@ -81,13 +81,15 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-lavender hover:text-white text-sm font-medium transition-colors duration-200 relative group"
+                  className="font-sora text-mediador hover:text-mediador text-md font-medium transition-colors duration-200 relative group"
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
-              <Button>Hablemos</Button>
+              <Button className="font-sora font-medium text-md">
+                Hablemos
+              </Button>
             </div>
 
             <div />
@@ -97,7 +99,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="text-white hover:text-white/80 focus:outline-none transition-colors duration-200"
+                className="text-tonico hover:text-tonico/90 focus:outline-none transition-colors duration-200"
                 aria-label="Open menu"
               >
                 <Menu className="w-6 h-6" />
@@ -123,7 +125,7 @@ const Navbar = () => {
 
         {/* Menu Content */}
         <div
-          className={`relative h-full flex flex-col bg-white/5 backdrop-blur-2xl border-l border-white/10 ml-auto max-w-sm w-full transition-transform duration-500 ease-out ${
+          className={`relative flex flex-col bg-white/5 backdrop-blur-2xl border-l border-white/10 ml-auto w-full h-screen transition-transform duration-500 ease-out pb-5 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -140,7 +142,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white/80 hover:text-white transition-colors duration-200"
+              className="text-tonico hover:text-tonico/90 transition-colors duration-200"
               aria-label="Close menu"
             >
               <X className="w-6 h-6" />
@@ -168,7 +170,7 @@ const Navbar = () => {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="group flex items-center justify-between py-4 px-4 rounded-xl text-white hover:bg-white/10 transition-all duration-200"
+                    className="group flex items-center justify-between py-4 px-4 rounded-xl text-mediador hover:bg-mediador/10 transition-all duration-200"
                   >
                     <span className="text-lg font-medium">{item.name}</span>
                     <ArrowRight className="w-5 h-5 text-lavender opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
