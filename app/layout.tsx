@@ -1,9 +1,9 @@
 // app/layout.tsx
-import type { Metadata } from "next"
-import type { ReactNode } from "react"
-import { siteConfig } from "@/config/site"
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { siteConfig } from "@/config/site";
 
-import "./globals.css"
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   authors: [
     {
       name: siteConfig.name,
-      url: siteConfig.url
+      url: siteConfig.url,
     },
     {
       name: siteConfig.author.name,
-      url: siteConfig.author.url
-    }
+      url: siteConfig.author.url,
+    },
   ],
 
   creator: siteConfig.author.name,
@@ -80,10 +80,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-}
+};
 
 interface RootLayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       {/* Tip: Aquí podrías agregar la clase de tu fuente variable si usas next/font 
         Ejemplo: <body className={varienFont.className}> 
       */}
-      <body className="bg-oxford-blue">{children}</body>
+      <body className="bg-dominante">{children}</body>
     </html>
-  )
+  );
 }

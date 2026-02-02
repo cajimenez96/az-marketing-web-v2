@@ -1,19 +1,19 @@
-import type { Metadata } from "next"
-import { siteConfig } from "@/config/site"
-import Home from "@/components/home/home"
-import Particles from "@/components/ui/Particles"
+import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
+import Home from "@/components/home/home";
+// import Particles from "@/components/ui/Particles";
 
 export const metadata: Metadata = {
   title: {
     absolute: siteConfig.title,
   },
   description: siteConfig.description,
-}
+};
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <div className="fixed inset-0 z-10 pointer-events-none">
+      {/* <div className="fixed inset-0 z-10 pointer-events-none">
         <Particles
           particleCount={150}
           particleSpread={12}
@@ -26,8 +26,8 @@ export default function HomePage() {
           moveParticlesOnHover={true}
           particleHoverFactor={0.5}
         />
-      </div>
+      </div> */}
       <Home />
     </div>
-  )
+  );
 }
