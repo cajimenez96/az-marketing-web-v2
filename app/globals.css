@@ -95,6 +95,12 @@
   --color-ylnmn-blue: var(--color-ylnmn-blue);
   --color-jordy-blue: var(--color-jordy-blue);
   --color-lavender: var(--color-lavender);
+
+  /* Colores V2 */
+  --color-tonico: var(--color-tonico);
+  --color-mediador: var(--color-mediador);
+  --color-complementario: var(--color-complementario);
+  --color-dominante: var(--color-dominante);
 }
 
 :root {
@@ -137,6 +143,12 @@
   --color-ylnmn-blue: #31487a;
   --color-jordy-blue: #8fb3e2;
   --color-lavender: #d9e1f1;
+
+  /* Colores V2 */
+  --color-tonico: #BFD12A;
+  --color-mediador: #EBF4F3;
+  --color-complementario: #192B5E;
+  --color-dominante: #0D111F;
 }
 
 .dark {
@@ -178,6 +190,12 @@
   --color-ylnmn-blue: #31487a;
   --color-jordy-blue: #8fb3e2;
   --color-lavender: #d9e1f1;
+
+  /* Colores V2 */
+  --color-tonico: #BFD12A;
+  --color-mediador: #EBF4F3;
+  --color-complementario: #192B5E;
+  --color-dominante: #0D111F;
 }
 
 @layer base {
@@ -187,13 +205,6 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, sans-serif;
     background-color: var(--color-oxford-blue);
-  }
-
-  /* Clase para usar la fuente Syne */
-  .font-syne {
-    font-family: "Syne", sans-serif;
   }
 }
