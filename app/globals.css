@@ -3,17 +3,17 @@
 
 /* Fuentes personalizadas */
 @font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter.ttf") format("truetype");
-  font-weight: 100 900;
+  font-family: "Oswald";
+  src: url("/assets/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Syne";
-  src: url("/assets/fonts/Syne.ttf") format("truetype");
-  font-weight: 400 800;
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }
@@ -50,6 +50,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Fuentes personalizadas para Tailwind */
+  --font-oswald: "Oswald", sans-serif;
+  --font-sora: "Sora", sans-serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
