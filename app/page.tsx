@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen w-full">
+    <>
       {/* <div className="fixed inset-0 z-10 pointer-events-none">
         <Particles
           particleCount={150}
@@ -28,6 +28,6 @@ export default function HomePage() {
         />
       </div> */}
       <Home />
-    </div>
+    </>
   );
 }

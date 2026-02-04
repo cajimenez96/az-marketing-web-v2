@@ -15,10 +15,10 @@ const Home = () => {
       <div className="space-y-16 container mx-auto px-8 lg:px-12 xl:px-0">
         <Hero id="#" />
         <AboutUs id="nosotros" />
+        <Services id="servicios" />
       </div>
 
       {/*
-      <Services id="servicios" />
       <Coverage id="cobertura" />
       <Clients id="clientes" />
       <Contact id="contacto" />

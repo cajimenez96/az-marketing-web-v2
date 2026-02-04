@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  ChevronsDown,
-  CircleChevronDown,
-  CircleChevronDownIcon,
-} from "lucide-react";
-import { Button } from "../ui/button";
-import Image from "next/image";
+import { CircleChevronDownIcon } from "lucide-react";
 import { Typography } from "../ui/typography";
 
 interface IHero {
