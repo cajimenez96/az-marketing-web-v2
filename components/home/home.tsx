@@ -10,13 +10,14 @@ import Footer from "@/components/Footer/Footer";
 
 const Home = () => {
   return (
-    <main>
+    <main className="bg-glow">
       <Navbar />
-      <div className="space-y-16 container mx-auto">
+      <div className="space-y-16 container mx-auto px-8 lg:px-12 xl:px-0">
         <Hero id="#" />
+        <AboutUs id="nosotros" />
       </div>
 
-      {/* <AboutUs id="nosotros" />
+      {/*
       <Services id="servicios" />
       <Coverage id="cobertura" />
       <Clients id="clientes" />

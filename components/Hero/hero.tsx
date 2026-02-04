@@ -20,14 +20,14 @@ const Hero = ({ id }: IHero) => {
           <div className="flex flex-col justify-center items-center">
             <Typography
               variant="display 1"
-              className="text-[3rem] lg:text-[9.37rem]"
+              className="text-[3rem] lg:text-[8rem] xl:text-[9.37rem]"
             >
               NO SOMOS SOLO
             </Typography>
             <div className="bg-tonico w-fit px-5 rounded-[6px] -rotate-1 -mt-3 lg:-mt-12">
               <Typography
                 variant="display subtitle 1"
-                className="text-dominante text-[1.4rem] lg:text-[4.6rem] font-medium"
+                className="text-dominante text-[1.32rem] lg:text-[3.5rem] xl:text-[4.6rem]"
                 style={{ letterSpacing: "0.1em" }}
               >
                 UNA AGENCIA DE MARKETING

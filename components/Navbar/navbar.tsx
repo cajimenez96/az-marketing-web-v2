@@ -41,7 +41,6 @@ const Navbar = () => {
     { name: "Servicios", href: "#servicios" },
     { name: "Cobertura", href: "#cobertura" },
     { name: "Nosotros", href: "#nosotros" },
-    { name: "Contacto", href: "#contacto" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -58,7 +57,7 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? "bg-oxford-blue/90 shadow-lg backdrop-blur-sm"
+            ? "bg-dominante/90 shadow-lg backdrop-blur-sm"
             : "bg-transparent"
         }`}
       >
