@@ -88,7 +88,7 @@ const Services = ({ id }: IServices) => {
 
       <Container className="mt-10">
         <div className="w-full bg-mediador/10 rounded-[6px] p-6">
-          <div className="flex flex-col justify-between items-center gap-10">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
             <div className="flex flex-col">
               <Typography variant="display 1" className="">
                 ESTRATEGIA
