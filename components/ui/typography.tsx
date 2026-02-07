@@ -23,7 +23,7 @@ export interface TypographyProps
     VariantProps<typeof typographyVariants> {}
 
 const Typography = React.forwardRef<HTMLSpanElement, TypographyProps>(
-  ({ className, variant = "subtitle 1", ...props }, ref) => (
+  ({ className, variant, ...props }, ref) => (
     <span
       ref={ref}
       className={cn(typographyVariants({ className, variant }), className)}
