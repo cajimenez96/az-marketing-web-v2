@@ -6,17 +6,43 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import logoUrl from "../../public/assets/images/AZ.png";
 
+const navItems = [
+  { name: "Inicio", href: "#inicio" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Cobertura", href: "#cobertura" },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
     const handleScroll = () => {
+      // Handle navbar background
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // Handle active section
+      const sections = navItems.map((item) => item.href.substring(1));
+      let currentSection = "inicio";
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Adjust offset as needed, e.g., considering navbar height
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -35,13 +61,6 @@ const Navbar = () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
-
-  const navItems = [
-    { name: "Inicio", href: "#" },
-    { name: "Servicios", href: "#servicios" },
-    { name: "Cobertura", href: "#cobertura" },
-    { name: "Nosotros", href: "#nosotros" },
-  ];
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -80,7 +99,11 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="font-sora text-mediador hover:text-mediador text-md font-medium transition-colors duration-200 relative group"
+                  className={`font-sora text-mediador hover:text-mediador text-md transition-colors duration-200 relative group ${
+                    activeSection === item.href.substring(1)
+                      ? "font-medium"
+                      : "font-thin"
+                  }`}
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -169,9 +192,13 @@ const Navbar = () => {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="group flex items-center justify-between py-4 px-4 rounded-xl text-mediador hover:bg-mediador/10 transition-all duration-200"
+                    className={`group flex items-center justify-between py-4 px-4 rounded-xl text-mediador hover:bg-mediador/10 transition-all duration-200 ${
+                      activeSection === item.href.substring(1)
+                        ? "font-medium bg-mediador/5"
+                        : "font-thin"
+                    }`}
                   >
-                    <span className="text-lg font-medium">{item.name}</span>
+                    <span className="text-lg">{item.name}</span>
                     <ArrowRight className="w-5 h-5 text-lavender opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                   </a>
                 </li>
