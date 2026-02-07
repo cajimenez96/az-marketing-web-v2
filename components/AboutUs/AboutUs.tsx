@@ -1,6 +1,7 @@
 import { Typography } from "../ui/typography";
 import Image from "next/image";
 import aboutUs from "@/public/assets/images/about/about-us.jpg";
+import Container from "../ui/container";
 
 interface IAboutUs {
   id: string;
@@ -10,7 +11,7 @@ const AboutUs = ({ id }: IAboutUs) => {
   return (
     <section id={id} className="relative w-full h-screen overflow-hidden">
       <div className="h-full relative z-10 mx-auto flex flex-col md:flex-row items-center">
-        <div className="w-full z-10 px-7 lg:pl-[100px] xl:pl-[210px]">
+        <Container className="w-full z-10">
           <div className="flex flex-col pt-10 md:pt-0">
             <Typography className="font-oswald font-medium text-[80px] md:text-[130px] lg:text-[150px] leading-20 md:leading-24 lg:leading-36 text-mediador">
               VIVIMOS
@@ -38,7 +39,7 @@ const AboutUs = ({ id }: IAboutUs) => {
               crecer tu marca.
             </Typography>
           </div>
-        </div>
+        </Container>
         <div className="absolute -inset-1 z-0">
           <Image
             src={aboutUs}

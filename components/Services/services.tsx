@@ -1,11 +1,11 @@
-import { Code2, Share2, Megaphone, ArrowUpRight, Zap } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Typography } from "../ui/typography";
+import Container from "../ui/container";
 
-const socialImageUrl = "/assets/images/services/develop.avif";
-const publicImageUrl = "/assets/images/services/via-publica.jpg";
-const developImageUrl = "/assets/images/services/systems.png";
+const socialImageUrl = "/assets/images/services/social.png";
+const publicImageUrl = "/assets/images/services/public.png";
+const developImageUrl = "/assets/images/services/develop.png";
 
 interface IServices {
   id: string;
@@ -20,13 +20,24 @@ interface IService {
 
 // ServiceCard component - Extracted outside to avoid recreation each render
 const ServiceCard = ({ service }: { service: IService }) => (
-  <div className="border-r-[0.25px] border-mediator min-h-[500px]">
-    <div className="px-10 pb-20 flex items-end h-full">
-      <div className="flex flex-col gap-5 h-[120px]">
-        <Typography variant="subtitle 2" className="text-xl font-semibold">
+  <div className="relative w-full h-[700px] lg:h-[678px] overflow-hidden">
+    <Image
+      src={service.image}
+      width={500}
+      height={500}
+      alt={service.title}
+      className="absolute inset-0 w-full h-full object-cover object-top"
+    />
+    <div className="absolute inset-0 bg-linear-to-t from-dominante from-10% via-dominante/60 via-40% to-transparent to-60%" />
+    <div className="relative h-full flex items-end p-8 lg:text-left">
+      <div className="flex flex-col gap-3 h-1/4 lg:h-42">
+        <Typography
+          variant="subtitle 2"
+          className="text-xl font-semibold text-white"
+        >
           {service.title}
         </Typography>
-        <Typography variant="subtitle 2" className="text-md">
+        <Typography variant="subtitle 2" className="text-md text-white/90">
           {service.description}
         </Typography>
       </div>
@@ -41,7 +52,7 @@ const Services = ({ id }: IServices) => {
       title: "Gestión Integral de Redes",
       description:
         "Creamos y gestionamos comunidades auténticas en todas las plataformas sociales, con contenido estratégico que conecta con tu audiencia.",
-      image: developImageUrl,
+      image: socialImageUrl,
     },
     {
       id: "development",
@@ -60,45 +71,44 @@ const Services = ({ id }: IServices) => {
   ];
 
   return (
-    <section id={id} className="h-screen mx-auto">
-      <div className="w-full border-t-[0.25px] border-mediator"></div>
-
-      <div className="text-center my-5">
-        <Typography
-          variant="display 1"
-          className="text-center font-medium text-[6rem] lg:text-[8rem]"
-        >
+    <section id={id} className="mx-auto text-center">
+      <>
+        <Typography className="font-oswald font-medium text-[45px] md:text-[80px] lg:text-[px] text-mediador whitespace-nowrap">
           NUESTROS SERVICIOS
         </Typography>
-      </div>
+      </>
 
-      <div className="flex mb-10">
-        {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
-        ))}
-      </div>
-
-      <div className="w-full bg-mediador/10 py-10 px-20 rounded-[6px]">
-        <div className="flex justify-between items-center gap-10">
-          <div className="flex flex-col">
-            <Typography variant="display 1" className="">
-              ESTRATEGIA
-            </Typography>
-            <Typography variant="display 1" className="">
-              360°
-            </Typography>
-          </div>
-          <div className="w-1/2">
-            <Typography variant="subtitle 2" className="text-sm">
-              Incluye todos los puntos de contacto con tu audiencia. Desde la
-              comunicación en redes sociales hasta el impacto visual en la
-              calle, cada elemento trabaja en conjunto para fortalecer tu marca
-              y generar resultados medibles.
-            </Typography>
-          </div>
-          <Button>Conocer más</Button>
+      <Container className="mt-10 sm:px-0">
+        <div className="w-full flex flex-col lg:flex-row justify-between gap-15">
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
         </div>
-      </div>
+      </Container>
+
+      <Container className="mt-10">
+        <div className="w-full bg-mediador/10 rounded-[6px] p-6">
+          <div className="flex flex-col justify-between items-center gap-10">
+            <div className="flex flex-col">
+              <Typography variant="display 1" className="">
+                ESTRATEGIA
+              </Typography>
+              <Typography variant="display 1" className="">
+                360°
+              </Typography>
+            </div>
+            <div className="lg:w-1/2">
+              <Typography variant="subtitle 2" className="text-sm">
+                Incluye todos los puntos de contacto con tu audiencia. Desde la
+                comunicación en redes sociales hasta el impacto visual en la
+                calle, cada elemento trabaja en conjunto para fortalecer tu
+                marca y generar resultados medibles.
+              </Typography>
+            </div>
+            <Button>Conocer más</Button>
+          </div>
+        </div>
+      </Container>
     </section>
   );
 };

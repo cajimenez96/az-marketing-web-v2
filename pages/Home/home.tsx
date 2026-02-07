@@ -12,11 +12,11 @@ const Home = () => {
   return (
     <main className="">
       <Navbar />
-      <>
+      <div className="space-y-20">
         <Hero id="inicio" />
         <AboutUs id="nosotros" />
-        {/*<Services id="servicios" /> */}
-      </>
+        <Services id="servicios" />
+      </div>
 
       {/*
       <Coverage id="cobertura" />
