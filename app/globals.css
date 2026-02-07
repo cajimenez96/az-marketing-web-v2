@@ -242,6 +242,18 @@
   --color-dominante: #0D111F;
 }
 
+
+/* Responsive line height utility */
+.leading-responsive {
+  line-height: 30px;
+}
+
+@media (min-width: 768px) {
+  .leading-responsive {
+    line-height: 38px;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
