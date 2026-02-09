@@ -20,26 +20,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#1a2840] border-t border-white/10">
+    <footer className="relative bg-dominante border-t border-white/10 mt-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-3">
             <Image
               src={logoUrl}
-              alt="AZ Marketing Logo"
+              alt="AZ Comunicaciones Logo"
               className="object-contain"
               width={50}
               height={50}
             />
             <span className="text-white text-lg font-bold tracking-wide font-syne">
-              MARKETING
+              COMUNICACIÓN
             </span>
           </div>
 
           {/* Copyright */}
           <div className="text-lavender/60 text-sm text-center">
-            © {currentYear} AZ Marketing. Todos los derechos reservados.
+            © {currentYear} AZ Comunicaciones. Todos los derechos reservados.
           </div>
 
           {/* Social Media Icons */}

@@ -17,12 +17,10 @@ const Home = () => {
         <AboutUs id="nosotros" />
         <Services id="servicios" />
         <Coverage id="cobertura" />
+        <Clients id="clientes" />
+        <Contact id="contacto" />
+        <Footer />
       </div>
-
-      {/*
-      <Clients id="clientes" />
-      <Contact id="contacto" />
-      <Footer /> */}
     </main>
   );
 };

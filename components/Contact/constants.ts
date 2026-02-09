@@ -6,12 +6,12 @@ export const CONTACT_INFO = {
     label: "LLAMANOS",
   },
   email: {
-    address: "hola@azmarketing.com",
+    address: "hola@azcomunicacion.com",
     label: "ESCRIBINOS",
   },
   location: {
-    city: "Tucumán, Argentina",
-    label: "OFICINA",
+    city: "San Miguel de Tucumán, Argentina",
+    label: "VEN A VERNOS",
   },
 } as const;
 
@@ -43,6 +43,5 @@ export const STATUS_MESSAGES = {
 
 // Section Content
 export const SECTION_CONTENT = {
-  heading: "¿Listo para escalar tu negocio?",
-  description: "Hablamos sobre tus objetivos y cómo nuestra visión integral puede ayudarte a alcanzarlos.",
+  description: "Coméntanos cuales son tus objetivos y te asesoraremos de que manera nuestro trabajo puede ayudarte a alcanzarlos.",
 } as const;

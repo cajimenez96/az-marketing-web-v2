@@ -145,6 +145,7 @@
   --color-mediador: var(--color-mediador);
   --color-complementario: var(--color-complementario);
   --color-dominante: var(--color-dominante);
+  --color-form: var(--color-form);
 }
 
 :root {
@@ -193,6 +194,7 @@
   --color-mediador: #EBF4F3;
   --color-complementario: #192B5E;
   --color-dominante: #0D111F;
+  --color-form: #EBF4F3;
 }
 
 .dark {
@@ -240,6 +242,7 @@
   --color-mediador: #EBF4F3;
   --color-complementario: #192B5E;
   --color-dominante: #0D111F;
+  --color-form: #ebf4f3;
 }
 
 
