@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "AZ Comunicación",
+  name: "AZ Marketing",
   // El título largo para la Home
-  title: "AZ Comunicación | Comunicación y Marketing en un solo lugar",
+  title: "AZ Marketing | Marketing y Comunicación en un solo lugar",
   description: 
-    "Potencia tu marca con AZ Comunicación. Expertos en Desarrollo de Software, Gestión de Redes Sociales y Publicidad en Vía Pública (Carteles y LED) en Tucumán, NOA y NEA. Comunicación y Marketing en un solo lugar.",
+    "Potencia tu marca con AZ Marketing. Expertos en Desarrollo de Software, Gestión de Redes Sociales y Publicidad en Vía Pública (Carteles y LED) en Tucumán, NOA y NEA. Marketing y Comunicación en un solo lugar.",
   
   // URL base con fallback seguro
   url: "https://azmarketing.com.ar",
