@@ -10,18 +10,20 @@ import Footer from "@/components/Footer/Footer";
 
 const Home = () => {
   return (
-    <main className="">
+    <div className="bg-page min-h-screen">
       <Navbar />
-      <div className="space-y-20">
-        <Hero id="inicio" />
-        <AboutUs id="nosotros" />
-        <Services id="servicios" />
-        <Coverage id="cobertura" />
-        <Clients id="clientes" />
-        <Contact id="contacto" />
-        <Footer />
-      </div>
-    </main>
+      <main className="">
+        <div>
+          <Hero id="inicio" />
+          <AboutUs id="nosotros" />
+          <Services id="servicios" />
+          <Coverage id="cobertura" />
+          <Clients id="clientes" />
+          <Contact id="contacto" />
+          <Footer />
+        </div>
+      </main>
+    </div>
   );
 };
 

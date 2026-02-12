@@ -1,5 +1,7 @@
 import { CircleChevronDownIcon } from "lucide-react";
 import { Typography } from "../ui/typography";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 interface IHero {
   id?: string;
@@ -22,7 +24,7 @@ const Hero = ({ id }: IHero) => {
             </Typography>
             <div className="bg-tonico w-fit px-5 rounded-[4px]! -rotate-1 -mt-4 md:-mt-8 lg:-mt-12">
               <Typography
-                variant="display subtitle 1"
+                variant="display subtitle"
                 className="text-dominante text-[23px] md:text-[50px] lg:text-[78px]"
                 style={{ letterSpacing: ".15rem" }}
               >
@@ -32,7 +34,7 @@ const Hero = ({ id }: IHero) => {
           </div>
           <div className="text-center mt-[52px] mx-auto">
             <Typography
-              variant="subtitle 1"
+              variant="subtitle"
               className="text-[18px]! md:text-[24px]! whitespace-break-spaces height leading-responsive"
             >
               {`Te ayudamos a crecer integrando\n contenido para redes, desarrollo web\n y publicidad en vía publica.`}
@@ -40,15 +42,17 @@ const Hero = ({ id }: IHero) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Typography variant="subtitle 1" className="uppercase text-lg">
+        <Button variant="link" className="hover:no-underline">
+          <Link href="#nosotros" className="flex items-center gap-2">
+          <Typography variant="subtitle" className="uppercase text-lg">
             CONÓCENOS
           </Typography>
           <CircleChevronDownIcon
             size={24}
             className="text-mediador animate-pulse"
           />
-        </div>
+          </Link>
+        </Button>
       </div>
     </section>
   );

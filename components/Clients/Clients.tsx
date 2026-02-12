@@ -29,7 +29,7 @@ const Clients = ({ id }: IClients) => {
   return (
     <section
       id={id}
-      className="relative w-full overflow-hidden max-h-[230px]! md:py-8 bg-tonico"
+      className="relative w-full overflow-hidden max-h-[230px]! my-[55px]! bg-tonico "
     >
       <div className="relative overflow-hidden w-full px-4">
         <Slider {...SLIDER_SETTINGS}>

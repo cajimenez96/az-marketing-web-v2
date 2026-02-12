@@ -8,11 +8,12 @@ const typographyVariants = cva("", {
     variant: {
       "display 1":
         "font-oswald text-4xl leading-[50px] font-medium text-mediador",
-      "display subtitle 1":
+      "display subtitle":
         "font-oswald text-[28px] leading-10 font-medium text-mediador",
-      "subtitle 1":
+      "subtitle":
         "font-sora text-[1.5rem] leading-10 font-light text-mediador",
-      "subtitle 2": "font-sora text-[1rem] leading-10 font-light text-mediador",
+      "subtitle 2": "font-sora text-[1.62rem] leading-10 font-semibold text-mediador",
+      "sora light": "font-sora text-[1.3rem] leading-10 font-light text-mediador",
     },
   },
 });

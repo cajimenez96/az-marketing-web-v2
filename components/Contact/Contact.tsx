@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -23,7 +23,7 @@ const Contact = ({ id }: IContact) => {
     useContactForm();
 
   return (
-    <section id={id} className="relative py-16 lg:py-24">
+    <section id={id} className="relative my-[55px]!">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Contact Info */}
@@ -32,7 +32,7 @@ const Contact = ({ id }: IContact) => {
             <div className="space-y-6">
               <div className="flex flex-col">
                 <Typography className="font-oswald font-medium text-[50px] md:text-[80px] lg:text-[90px] leading-12 md:leading-20 lg:leading-22 text-mediador">
-                  HABLEMOS E
+                  HABLEMOS!
                 </Typography>
                 <Typography className="font-oswald font-medium text-[50px] md:text-[80px] lg:text-[90px] leading-12 md:leading-20 lg:leading-22 text-tonico">
                   IMPULSEMOS
@@ -80,21 +80,6 @@ const Contact = ({ id }: IContact) => {
                   </p>
                   <p className="text-mediador/70 text-sm">
                     {CONTACT_INFO.email.address}
-                  </p>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center size-10 rounded-full border border-mediador/20">
-                  <MapPin className="size-4 text-mediador" />
-                </div>
-                <div>
-                  <p className="text-mediador text-sm font-bold uppercase">
-                    {CONTACT_INFO.location.label}
-                  </p>
-                  <p className="text-mediador/70 text-sm">
-                    {CONTACT_INFO.location.city}
                   </p>
                 </div>
               </div>

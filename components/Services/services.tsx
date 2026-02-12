@@ -20,7 +20,7 @@ interface IService {
 
 // ServiceCard component - Extracted outside to avoid recreation each render
 const ServiceCard = ({ service }: { service: IService }) => (
-  <div className="relative w-full h-[700px] lg:h-[678px] overflow-hidden">
+  <div className="relative w-full h-[500px] lg:h-[678px] overflow-hidden">
     <Image
       src={service.image}
       width={500}
@@ -29,15 +29,15 @@ const ServiceCard = ({ service }: { service: IService }) => (
       className="absolute inset-0 w-full h-full object-cover object-top"
     />
     <div className="absolute inset-0 bg-linear-to-t from-dominante from-10% via-dominante/60 via-40% to-transparent to-60%" />
-    <div className="relative h-full flex items-end p-8 lg:text-left">
-      <div className="flex flex-col gap-3 h-1/4 lg:h-42">
+    <div className="relative h-full flex items-end  px-8 py-3 lg:text-left">
+      <div className="flex flex-col gap-3 h-[30%]">
         <Typography
           variant="subtitle 2"
-          className="text-xl font-semibold text-white"
+          className="text-xl"
         >
           {service.title}
         </Typography>
-        <Typography variant="subtitle 2" className="text-md text-white/90">
+        <Typography variant="sora light" className="text-lg">
           {service.description}
         </Typography>
       </div>
@@ -71,7 +71,7 @@ const Services = ({ id }: IServices) => {
   ];
 
   return (
-    <section id={id} className="mx-auto text-center">
+    <section id={id} className="mx-auto text-center my-[55px]!">
       <>
         <Typography className="font-oswald font-medium text-[45px] md:text-[80px] lg:text-[px] text-mediador whitespace-nowrap">
           NUESTROS SERVICIOS
@@ -79,7 +79,7 @@ const Services = ({ id }: IServices) => {
       </>
 
       <Container className="mt-10 sm:px-0">
-        <div className="w-full flex flex-col lg:flex-row justify-between gap-15">
+        <div className="w-full flex flex-col lg:flex-row justify-center gap-10">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}

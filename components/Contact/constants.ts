@@ -6,12 +6,8 @@ export const CONTACT_INFO = {
     label: "LLAMANOS",
   },
   email: {
-    address: "hola@azcomunicacion.com",
+    address: "hola@azmarketing.com.ar",
     label: "ESCRIBINOS",
-  },
-  location: {
-    city: "San Miguel de Tucumán, Argentina",
-    label: "VEN A VERNOS",
   },
 } as const;
 
@@ -22,15 +18,6 @@ export const FORM_LABELS = {
   email: "Email",
   telefono: "Teléfono",
   mensaje: "Mensaje",
-} as const;
-
-// Form Placeholders
-export const FORM_PLACEHOLDERS = {
-  nombre: "John Doe",
-  empresa: "Acme Inc.",
-  email: "john@acme.com",
-  telefono: "+54 9 381 123-4567",
-  mensaje: "¿En qué podemos ayudarte?",
 } as const;
 
 // Status Messages

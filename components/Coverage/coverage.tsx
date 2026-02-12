@@ -8,25 +8,10 @@ interface ICoverage {
   id: string;
 }
 
-const provinces = [
-  { name: "Jujuy", top: "8%", left: "33%" },
-  { name: "Salta", top: "16%", left: "38%" },
-  { name: "Formosa", top: "14%", left: "60%" },
-  { name: "Tucumán", top: "20%", left: "36%" },
-  { name: "Catamarca", top: "20%", left: "28%" },
-  { name: "Santiago del Estero", top: "23%", left: "45%" },
-  { name: "Chaco", top: "20%", left: "58%" },
-  { name: "Corrientes", top: "25%", left: "70%" },
-];
-
-const MapMarker = () => (
-  <span className="block size-1.5 md:size-3 xl:size-3.5 rounded-full border border-tonico md:border-2 bg-tonico/30" />
-);
-
 const Coverage = ({ id }: ICoverage) => {
   return (
-    <section id={id} className="w-full min-h-screen lg:h-screen">
-      <Container className="h-full flex flex-col xl:flex-row gap-10 py-16 lg:py-0">
+    <section id={id} className="w-full min-h-fit">
+      <Container className="h-full flex flex-col xl:flex-row gap-10 lg:py-0">
         {/* Text content */}
         <div className="w-full xl:w-1/2">
           <div className="flex flex-col w-full">
@@ -42,7 +27,7 @@ const Coverage = ({ id }: ICoverage) => {
           </div>
 
           <div className="flex flex-col gap-2 md:gap-8 mt-10 w-full">
-            <Typography variant="subtitle 2" className="text-md">
+            <Typography variant="subtitle" className="text-lg">
               No se trata de estar en todos lados, sino de estar donde tu
               audiencia está más receptiva. Para ello contamos con una red
               exclusiva de dispositivos en las principales arterias de Tucumán,
@@ -55,7 +40,7 @@ const Coverage = ({ id }: ICoverage) => {
                   className="text-tonico shrink-0 mt-0.5"
                   size={20}
                 />
-                <Typography variant="subtitle 2" className="text-mediador">
+                <Typography variant="sora light" className="text-md">
                   Ubicaciones premium en zonas comerciales de alta densidad.
                 </Typography>
               </li>
@@ -64,7 +49,7 @@ const Coverage = ({ id }: ICoverage) => {
                   className="text-tonico shrink-0 mt-0.5"
                   size={20}
                 />
-                <Typography variant="subtitle 2" className="text-mediador">
+                <Typography variant="sora light" className="text-md">
                   Dispositivos digitales LED de última generación con métricas
                   reales.
                 </Typography>
@@ -74,7 +59,7 @@ const Coverage = ({ id }: ICoverage) => {
                   className="text-tonico shrink-0 mt-0.5"
                   size={20}
                 />
-                <Typography variant="subtitle 2" className="text-mediador">
+                <Typography variant="sora light" className="text-md">
                   Formatos estáticos de gran escala (monocolumnas y
                   medianerías).
                 </Typography>
@@ -84,7 +69,7 @@ const Coverage = ({ id }: ICoverage) => {
                   className="text-tonico shrink-0 mt-0.5"
                   size={20}
                 />
-                <Typography variant="subtitle 2" className="text-mediador">
+                <Typography variant="sora light" className="text-md">
                   Mantenimiento e iluminación garantizada 24/7.
                 </Typography>
               </li>
@@ -93,22 +78,13 @@ const Coverage = ({ id }: ICoverage) => {
         </div>
 
         {/* Map with markers */}
-        <div className="w-full md:w-2/3 md:mx-auto xl:w-1/2 flex p-10">
-          <div className="relative w-full">
+        <div className="md:w-2/3 md:mx-auto w-fill flex">
+          <div>
             <Image
               src={argentinaMapUrl}
               alt="Cobertura"
-              className="object-cover w-full h-auto"
+              className="w-lg object-center object-fill animate-pulse"
             />
-            {provinces.map((province) => (
-              <div
-                key={province.name}
-                className="absolute -translate-x-1/2 -translate-y-1/2 animate-pulse"
-                style={{ top: province.top, left: province.left }}
-              >
-                <MapMarker />
-              </div>
-            ))}
           </div>
         </div>
       </Container>

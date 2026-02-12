@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-dominante border-t border-white/10 mt-10">
+    <footer className="relative bg-transparent border-t border-white/10 mt-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo and Brand */}
