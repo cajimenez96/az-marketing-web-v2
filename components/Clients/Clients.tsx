@@ -1,48 +1,55 @@
-import Image from "next/image";
+"use client";
 
-const logos = [
-  "/assets/images/companies/7.png",
-  "/assets/images/companies/8.png",
-  "/assets/images/companies/9.png",
-  "/assets/images/companies/10.png",
-  "/assets/images/companies/11.png",
-  "/assets/images/companies/12.png",
-  "/assets/images/companies/13.png",
-  "/assets/images/companies/CAPO.jpg",
-  "/assets/images/companies/WERCHOW.jpg",
-  "/assets/images/companies/ruddys.jpg",
-  "/assets/images/companies/Logo.png",
-  "/assets/images/companies/logo-azul.png",
-];
+import Image from "next/image";
+import Slider from "react-slick";
+import { CLIENTS } from "./constants";
 
 interface IClients {
   id?: string;
 }
 
+const SLIDER_SETTINGS = {
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  speed: 1000,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: false,
+  pauseOnHover: false,
+  responsive: [
+    { breakpoint: 1024, settings: { slidesToShow: 4 } },
+    { breakpoint: 768, settings: { slidesToShow: 3 } },
+    { breakpoint: 480, settings: { slidesToShow: 2 } },
+  ],
+};
+
 const Clients = ({ id }: IClients) => {
   return (
     <section
       id={id}
-      className="relative w-full overflow-hidden py-6 md:py-8 bg-tonico"
+      className="relative w-full overflow-hidden max-h-[230px]! md:py-8 bg-tonico"
     >
-      <div className="relative overflow-hidden w-full">
-        {/* Marquee */}
-        <div className="flex animate-marquee whitespace-nowrap gap-16 md:gap-20 lg:gap-24">
-          {[...logos, ...logos].map((logo, idx) => (
+      <div className="relative overflow-hidden w-full px-4">
+        <Slider {...SLIDER_SETTINGS}>
+          {CLIENTS.map((client) => (
             <div
-              key={idx}
-              className="shrink-0 h-10 md:h-14 flex items-center justify-center"
+              key={client.id}
+              className="px-2 md:px-4 flex items-center justify-center outline-none focus:outline-none mx-auto my-auto"
             >
-              <Image
-                src={logo}
-                alt={`Cliente ${idx + 1}`}
-                className="object-contain h-full w-auto brightness-0"
-                width={120}
-                height={60}
-              />
+              <div className="shrink-0 flex items-center justify-center">
+                <Image
+                  src={client.image}
+                  alt={`Cliente ${client.name}`}
+                  className="object-cover brightness-0"
+                  width={120}
+                  height={60}
+                />
+              </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );
