@@ -6,12 +6,8 @@ export const CONTACT_INFO = {
     label: "LLAMANOS",
   },
   email: {
-    address: "hola@azmarketing.com",
+    address: "hola@azmarketing.com.ar",
     label: "ESCRIBINOS",
-  },
-  location: {
-    city: "Tucumán, Argentina",
-    label: "OFICINA",
   },
 } as const;
 
@@ -24,15 +20,6 @@ export const FORM_LABELS = {
   mensaje: "Mensaje",
 } as const;
 
-// Form Placeholders
-export const FORM_PLACEHOLDERS = {
-  nombre: "John Doe",
-  empresa: "Acme Inc.",
-  email: "john@acme.com",
-  telefono: "+54 9 381 123-4567",
-  mensaje: "¿En qué podemos ayudarte?",
-} as const;
-
 // Status Messages
 export const STATUS_MESSAGES = {
   success: "¡Mensaje enviado exitosamente! Te contactaremos pronto.",
@@ -43,6 +30,5 @@ export const STATUS_MESSAGES = {
 
 // Section Content
 export const SECTION_CONTENT = {
-  heading: "¿Listo para escalar tu negocio?",
-  description: "Hablamos sobre tus objetivos y cómo nuestra visión integral puede ayudarte a alcanzarlos.",
+  description: "Coméntanos cuales son tus objetivos y te asesoraremos de que manera nuestro trabajo puede ayudarte a alcanzarlos.",
 } as const;

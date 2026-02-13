@@ -1,61 +1,58 @@
-import Image from "next/image"
+"use client";
 
-const logos = [
-  "/assets/images/companies/7.png",
-  "/assets/images/companies/8.png",
-  "/assets/images/companies/9.png",
-  "/assets/images/companies/10.png",
-  "/assets/images/companies/11.png",
-  "/assets/images/companies/12.png",
-  "/assets/images/companies/13.png",
-  "/assets/images/companies/CAPO.jpg",
-  "/assets/images/companies/WERCHOW.jpg",
-  "/assets/images/companies/ruddys.jpg",
-  "/assets/images/companies/Logo.png",
-  "/assets/images/companies/logo-azul.png",
-]
+import Image from "next/image";
+import Slider from "react-slick";
+import { CLIENTS } from "./constants";
 
 interface IClients {
-  id?: string
+  id?: string;
 }
+
+const SLIDER_SETTINGS = {
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  speed: 1000,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: false,
+  pauseOnHover: false,
+  responsive: [
+    { breakpoint: 1024, settings: { slidesToShow: 4 } },
+    { breakpoint: 768, settings: { slidesToShow: 3 } },
+    { breakpoint: 480, settings: { slidesToShow: 2 } },
+  ],
+};
 
 const Clients = ({ id }: IClients) => {
   return (
-    <section id={id} className="relative w-screen overflow-hidden py-16 lg:py-20 border-y border-white/5">
-      {/* Title */}
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <p className="text-center text-lavender/40 text-xs font-bold uppercase tracking-[0.3em]">
-          Empresas que confían en nosotros
-        </p>
-      </div>
-
-      {/* Carousel Container */}
-      <div className="relative overflow-hidden w-full">
-        {/* Gradient overlays to fade out marquee ends */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-linear-to-r from-oxford-blue to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-linear-to-l from-oxford-blue to-transparent z-10 pointer-events-none"></div>
-
-        {/* Marquee */}
-        <div className="flex animate-marquee whitespace-nowrap gap-12 md:gap-16 lg:gap-20 py-4">
-          {/* Duplicate logos twice for seamless loop */}
-          {[...logos, ...logos].map((logo, idx) => (
+    <section
+      id={id}
+      className="relative w-full overflow-hidden max-h-[230px]! my-[55px]! bg-tonico "
+    >
+      <div className="relative overflow-hidden w-full px-4">
+        <Slider {...SLIDER_SETTINGS}>
+          {CLIENTS.map((client) => (
             <div
-              key={idx}
-              className="shrink-0 w-32 h-20 md:w-40 md:h-24 flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              key={client.id}
+              className="px-2 md:px-4 flex items-center justify-center outline-none focus:outline-none mx-auto my-auto"
             >
-              <Image
-                src={logo}
-                alt={`Cliente ${idx + 1}`}
-                className="object-contain"
-                width={120}
-                height={120}
-              />
+              <div className="shrink-0 flex items-center justify-center">
+                <Image
+                  src={client.image}
+                  alt={`Cliente ${client.name}`}
+                  className="object-cover brightness-0"
+                  width={120}
+                  height={60}
+                />
+              </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Clients
+export default Clients;

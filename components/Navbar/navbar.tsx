@@ -1,111 +1,128 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Button } from '../ui/button'
-import { Menu, X, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
+import { useState, useEffect } from "react";
+import { Button } from "../ui/button";
+import { Menu, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import logoUrl from "../../public/assets/images/AZ.png";
+import Link from "next/link";
 
-const logoUrl = "/assets/images/AZ.png"
+const navItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Cobertura", href: "#cobertura" },
+];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
     const handleScroll = () => {
+      // Handle navbar background
       if (window.scrollY > 20) {
-        setIsScrolled(true)
+        setIsScrolled(true);
       } else {
-        setIsScrolled(false)
+        setIsScrolled(false);
       }
-    }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      // Handle active section
+      const sections = navItems.map((item) => item.href.substring(1));
+      let currentSection = "inicio";
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Adjust offset as needed, e.g., considering navbar height
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isMobileMenuOpen])
-
-  const navItems = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Cobertura', href: '#cobertura' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Contacto', href: '#contacto' },
-  ]
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
-    setIsMobileMenuOpen(false)
+    setIsMobileMenuOpen(false);
     // Smooth scroll to section
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled
-          ? 'bg-oxford-blue/90 shadow-lg backdrop-blur-sm'
-          : 'bg-transparent'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+          isScrolled
+            ? "bg-dominante/90 shadow-lg backdrop-blur-sm"
+            : "bg-transparent"
+        }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="shrink-0">
-              <a href="#" className="flex items-center space-x-3">
+              <Link href="/" className="flex items-center space-x-3">
                 <Image
                   src={logoUrl}
                   alt="AZ Marketing Logo"
-                  className="object-contain"
-                  width={50}
+                  width={83}
                   height={50}
                 />
-                <span className="text-white text-xl font-bold tracking-wide font-syne">
-                  AZ Marketing
-                </span>
-              </a>
+              </Link>
             </div>
 
             {/* Navigation Items - Desktop */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
-                  className="text-lavender hover:text-white text-sm font-medium transition-colors duration-200 relative group"
+                  className={`font-sora text-mediador hover:text-mediador text-md transition-colors duration-200 relative group ${
+                    activeSection === item.href.substring(1)
+                      ? "font-medium"
+                      : "font-thin"
+                  }`}
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
-            </div>
-
-            {/* CTA Button - Desktop */}
-            <div className="hidden md:block">
-              <Button variant='outline' className='p-6 border-2 rounded-full text-sm font-medium'>
-                Hablemos
+              <Button className="font-sora font-medium text-md">
+                <Link href="#contacto">Hablemos</Link>
               </Button>
             </div>
+
+            <div />
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="text-white hover:text-white/80 focus:outline-none transition-colors duration-200"
+                className="text-tonico hover:text-tonico/90 focus:outline-none transition-colors duration-200"
                 aria-label="Open menu"
               >
                 <Menu className="w-6 h-6" />
@@ -117,10 +134,11 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-60 md:hidden transition-all duration-300 ${isMobileMenuOpen
-          ? 'opacity-100 pointer-events-auto'
-          : 'opacity-0 pointer-events-none'
-          }`}
+        className={`fixed inset-0 z-60 md:hidden transition-all duration-300 ${
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
       >
         {/* Backdrop */}
         <div
@@ -130,20 +148,24 @@ const Navbar = () => {
 
         {/* Menu Content */}
         <div
-          className={`relative h-full flex flex-col bg-white/5 backdrop-blur-2xl border-l border-white/10 ml-auto max-w-sm w-full transition-transform duration-500 ease-out ${isMobileMenuOpen
-            ? 'translate-x-0'
-            : 'translate-x-full'
-            }`}
+          className={`relative flex flex-col bg-white/5 backdrop-blur-2xl border-l border-white/10 ml-auto w-full h-screen transition-transform duration-500 ease-out pb-5 ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/10">
             <div className="flex items-center space-x-3">
-              <Image src={logoUrl} alt="AZ Marketing" className="object-contain" width={50} height={50} />
-              <span className="text-white font-bold text-lg font-syne">AZ Marketing</span>
+              <Image
+                src={logoUrl}
+                alt="AZ Marketing"
+                className="object-contain"
+                width={50}
+                height={50}
+              />
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white/80 hover:text-white transition-colors duration-200"
+              className="text-tonico hover:text-tonico/90 transition-colors duration-200"
               aria-label="Close menu"
             >
               <X className="w-6 h-6" />
@@ -159,20 +181,25 @@ const Navbar = () => {
                   style={{
                     animationDelay: `${index * 50}ms`,
                   }}
-                  className={`${isMobileMenuOpen
-                    ? 'animate-fade-in-up opacity-100'
-                    : 'opacity-0'
-                    }`}
+                  className={`${
+                    isMobileMenuOpen
+                      ? "animate-fade-in-up opacity-100"
+                      : "opacity-0"
+                  }`}
                 >
                   <a
                     href={item.href}
                     onClick={(e) => {
-                      e.preventDefault()
-                      handleNavClick(item.href)
+                      e.preventDefault();
+                      handleNavClick(item.href);
                     }}
-                    className="group flex items-center justify-between py-4 px-4 rounded-xl text-white hover:bg-white/10 transition-all duration-200"
+                    className={`group flex items-center justify-between py-4 px-4 rounded-xl text-mediador hover:bg-mediador/10 transition-all duration-200 ${
+                      activeSection === item.href.substring(1)
+                        ? "font-medium bg-mediador/5"
+                        : "font-thin"
+                    }`}
                   >
-                    <span className="text-lg font-medium">{item.name}</span>
+                    <span className="text-lg">{item.name}</span>
                     <ArrowRight className="w-5 h-5 text-lavender opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                   </a>
                 </li>
@@ -180,21 +207,18 @@ const Navbar = () => {
             </ul>
           </nav>
 
-          {/* CTA Button - Mobile */}
-          <div className="p-6 border-t border-white/10">
-            <Button
-              variant="outline"
-              className="gap-3 bg-linear-to-r from-jordy-blue to-lavender w-full h-14 rounded-full font-semibold text-base text-oxford-blue hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(143,179,226,0.5)] transition-all duration-300"
-              onClick={() => handleNavClick('#contacto')}
-            >
-              Hablemos
-              <ArrowRight className="w-5 h-5" />
+          {/* Hablemos Button */}
+          <div className="p-2">
+            <Button className="w-full">
+              <Link href="#contacto">
+                Hablemos
+              </Link>
             </Button>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
