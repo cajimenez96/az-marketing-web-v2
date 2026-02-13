@@ -62,13 +62,13 @@ const Services = ({ id }: IServices) => {
         "Desarrollamos soluciones tecnológicas a medida que optimizan procesos y mejoran la experiencia de tus clientes.",
       image: developImageUrl,
     },
-    {
-      id: "advertising",
-      title: "Publicidad en Vía Pública",
-      description:
-        "Conectamos tu marca con miles de personas cada día a través de ubicaciones estratégicas en todo el Norte Argentino.",
-      image: publicImageUrl,
-    },
+    // {
+    //   id: "advertising",
+    //   title: "Publicidad en Vía Pública",
+    //   description:
+    //     "Conectamos tu marca con miles de personas cada día a través de ubicaciones estratégicas en todo el Norte Argentino.",
+    //   image: publicImageUrl,
+    // },
   ];
 
   return (

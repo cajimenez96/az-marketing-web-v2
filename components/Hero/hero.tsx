@@ -37,7 +37,7 @@ const Hero = ({ id }: IHero) => {
               variant="subtitle"
               className="text-[18px]! md:text-[24px]! whitespace-break-spaces height leading-responsive"
             >
-              {`Te ayudamos a crecer integrando\n contenido para redes, desarrollo web\n y publicidad en vía pública.`}
+              {`Te ayudamos a crecer integrando\n contenido para redes, desarrollo web\n y publicidad.`}
             </Typography>
           </div>
         </div>

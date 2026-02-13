@@ -26,22 +26,21 @@ const Coverage = ({ id }: ICoverage) => {
             </Typography>
           </div>
 
-          <div className="flex flex-col gap-2 md:gap-8 mt-10 w-full">
+          <div className="flex flex-col gap-4 md:gap-8 mt-10 w-full">
             <Typography variant="subtitle" className="text-lg">
               No se trata de estar en todos lados, sino de estar donde tu
               audiencia está más receptiva. Para ello contamos con una red
-              exclusiva de dispositivos en las principales arterias de Tucumán,
-              Salta, Jujuy, Chaco y Corrientes.
+              exclusiva de dispositivos en las principales arterias de todo el Norte Argentino.
             </Typography>
 
-            <ul className="text-md flex flex-col gap-3">
+            <ul className="text-md grid grid-cols-2 gap-3">
               <li className="flex items-center gap-4">
                 <CircleCheckIcon
                   className="text-tonico shrink-0 mt-0.5"
                   size={20}
                 />
                 <Typography variant="sora light" className="text-md">
-                  Ubicaciones premium en zonas comerciales de alta densidad.
+                  Tucumán
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -50,8 +49,7 @@ const Coverage = ({ id }: ICoverage) => {
                   size={20}
                 />
                 <Typography variant="sora light" className="text-md">
-                  Dispositivos digitales LED de última generación con métricas
-                  reales.
+                  Salta
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -60,8 +58,7 @@ const Coverage = ({ id }: ICoverage) => {
                   size={20}
                 />
                 <Typography variant="sora light" className="text-md">
-                  Formatos estáticos de gran escala (monocolumnas y
-                  medianerías).
+                  Jujuy
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -70,7 +67,16 @@ const Coverage = ({ id }: ICoverage) => {
                   size={20}
                 />
                 <Typography variant="sora light" className="text-md">
-                  Mantenimiento e iluminación garantizada 24/7.
+                  Chaco
+                </Typography>
+              </li>
+              <li className="flex items-center gap-4">
+                <CircleCheckIcon
+                  className="text-tonico shrink-0 mt-0.5"
+                  size={20}
+                />
+                <Typography variant="sora light" className="text-md">
+                  Corrientes
                 </Typography>
               </li>
             </ul>

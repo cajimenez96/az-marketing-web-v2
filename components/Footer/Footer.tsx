@@ -26,20 +26,18 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo and Brand */}
-          <div className="flex items-center space-x-1">
-            <Link href="/">
-              <Image
-                src={logoUrl}
-                alt="AZ Comunicaciones Logo"
-                className="object-contain"
-                width={50}
-                height={50}
-              />
-              <span className="text-mediador text-lg font-bold tracking-wide font-sora">
-                Marketing
-              </span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center space-x-1">
+            <Image
+              src={logoUrl}
+              alt="AZ Comunicaciones Logo"
+              className="object-contain"
+              width={50}
+              height={50}
+            />
+            <span className="text-mediador text-lg font-bold tracking-wide font-sora">
+              Marketing
+            </span>
+          </Link>
 
           {/* Copyright */}
           <Typography className="text-mediador/60 text-sm text-center">

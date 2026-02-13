@@ -22,11 +22,6 @@ export const CLIENTS = [
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Farol Bike.png`,
   },
   {
-    id: 5,
-    name: "Fredy",
-    image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Fredy.png`,
-  },
-  {
     id: 6,
     name: "Grupo Fecovita",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Grupo Fecovita.png`,
@@ -38,27 +33,32 @@ export const CLIENTS = [
   },
   {
     id: 8,
-    name: "Indiana Peugeot",
-    image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Indiana Peugeot.png`,
-  },
-  {
-    id: 9,
     name: "Los Especiales",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Los Especiales.png`,
   },
   {
-    id: 10,
+    id: 9,
     name: "Mistral",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Mistral.png`,
   },
   {
-    id: 11,
+    id: 10,
     name: "R",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_R.png`,
   },
   {
-    id: 12,
+    id: 11,
     name: "Ruizsa",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Ruizsa.png`,
+  },
+  {
+    id: 12,
+    name: "Primer Corte",
+    image: `${COMPANIES_IMAGE_BASE}/primer-corte.png`,
+  },
+  {
+    id: 13,
+    name: "Sanchez Martinez & Asociados",
+    image: `${COMPANIES_IMAGE_BASE}/sanchez-asoc.png`,
   },
 ];
