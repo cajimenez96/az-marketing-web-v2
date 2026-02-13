@@ -1,5 +1,7 @@
 import { FacebookIcon, InstagramIcon } from "lucide-react";
 import Image from "next/image";
+import { Typography } from "../ui/typography";
+import Link from "next/link";
 
 const logoUrl = "/assets/images/AZ.png";
 
@@ -20,43 +22,45 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-transparent border-t border-white/10 mt-10">
+    <footer className="relative bg-transparent border-t border-mediador/10 mt-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo and Brand */}
-          <div className="flex items-center space-x-3">
-            <Image
-              src={logoUrl}
-              alt="AZ Comunicaciones Logo"
-              className="object-contain"
-              width={50}
-              height={50}
-            />
-            <span className="text-white text-lg font-bold tracking-wide font-syne">
-              COMUNICACIÓN
-            </span>
+          <div className="flex items-center space-x-1">
+            <Link href="/">
+              <Image
+                src={logoUrl}
+                alt="AZ Comunicaciones Logo"
+                className="object-contain"
+                width={50}
+                height={50}
+              />
+              <span className="text-mediador text-lg font-bold tracking-wide font-sora">
+                Marketing
+              </span>
+            </Link>
           </div>
 
           {/* Copyright */}
-          <div className="text-lavender/60 text-sm text-center">
-            © {currentYear} AZ Comunicaciones. Todos los derechos reservados.
-          </div>
+          <Typography className="text-mediador/60 text-sm text-center">
+            © {currentYear} AZ Marketing. Todos los derechos reservados.
+          </Typography>
 
           {/* Social Media Icons */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
-                <a
+                <Link
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lavender/60 hover:text-jordy-blue transition-colors duration-300"
+                  className="text-mediador/60 hover:text-tonico transition-colors duration-300"
                   aria-label={social.name}
                 >
                   <Icon className="w-5 h-5" />
-                </a>
+                </Link>
               );
             })}
           </div>

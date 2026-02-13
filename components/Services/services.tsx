@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { Typography } from "../ui/typography";
 import Container from "../ui/container";
+import Link from "next/link";
 
 const socialImageUrl = "/assets/images/services/social.png";
 const publicImageUrl = "/assets/images/services/public.png";
@@ -105,7 +106,11 @@ const Services = ({ id }: IServices) => {
                 marca y generar resultados medibles.
               </Typography>
             </div>
-            <Button>Conocer más</Button>
+              <Link href="#contacto">
+            <Button variant="default">
+                Conocer más
+            </Button>
+              </Link>
           </div>
         </div>
       </Container>

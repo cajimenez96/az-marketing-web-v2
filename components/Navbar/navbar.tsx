@@ -5,9 +5,10 @@ import { Button } from "../ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import logoUrl from "../../public/assets/images/AZ.png";
+import Link from "next/link";
 
 const navItems = [
-  { name: "Inicio", href: "#inicio" },
+  { name: "Inicio", href: "/" },
   { name: "Nosotros", href: "#nosotros" },
   { name: "Servicios", href: "#servicios" },
   { name: "Cobertura", href: "#cobertura" },
@@ -83,20 +84,20 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="shrink-0">
-              <a href="#" className="flex items-center space-x-3">
+              <Link href="/" className="flex items-center space-x-3">
                 <Image
                   src={logoUrl}
                   alt="AZ Marketing Logo"
                   width={83}
                   height={50}
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Navigation Items - Desktop */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={`font-sora text-mediador hover:text-mediador text-md transition-colors duration-200 relative group ${
@@ -107,10 +108,10 @@ const Navbar = () => {
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
               <Button className="font-sora font-medium text-md">
-                Hablemos
+                <Link href="#contacto">Hablemos</Link>
               </Button>
             </div>
 
@@ -208,7 +209,11 @@ const Navbar = () => {
 
           {/* Hablemos Button */}
           <div className="p-2">
-            <Button className="w-full">Hablemos</Button>
+            <Button className="w-full">
+              <Link href="#contacto">
+                Hablemos
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
