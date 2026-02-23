@@ -1,13 +1,40 @@
+"use client";
+
 import { CircleChevronDownIcon } from "lucide-react";
 import { Typography } from "../ui/typography";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 interface IHero {
   id?: string;
 }
 
 const Hero = ({ id }: IHero) => {
+  const handleConocenos = () => {
+    gsap.registerPlugin(ScrollToPlugin);
+
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: { y: "#nosotros", offsetY: 80 },
+      ease: "power3.inOut",
+      onComplete: () => {
+        const target = document.getElementById("nosotros");
+        if (!target) return;
+        gsap.fromTo(
+          target,
+          { scale: 1.015, filter: "brightness(1.12)" },
+          {
+            scale: 1,
+            filter: "brightness(1)",
+            duration: 0.6,
+            ease: "power2.out",
+          },
+        );
+      },
+    });
+  };
+
   return (
     <section
       id={id}
@@ -42,16 +69,20 @@ const Hero = ({ id }: IHero) => {
           </div>
         </div>
 
-        <Button variant="link" className="hover:no-underline">
-          <Link href="#nosotros" className="flex items-center gap-2">
-          <Typography variant="subtitle" className="uppercase text-lg">
-            CONÓCENOS
-          </Typography>
-          <CircleChevronDownIcon
-            size={24}
-            className="text-mediador animate-pulse"
-          />
-          </Link>
+        <Button
+          variant="link"
+          className="hover:no-underline"
+          onClick={handleConocenos}
+        >
+          <span className="flex items-center gap-2">
+            <Typography variant="subtitle" className="uppercase text-lg">
+              CONÓCENOS
+            </Typography>
+            <CircleChevronDownIcon
+              size={24}
+              className="text-mediador animate-pulse"
+            />
+          </span>
         </Button>
       </div>
     </section>

@@ -6,6 +6,9 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import logoUrl from "../../public/assets/images/AZ.png";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const navItems = [
   { name: "Inicio", href: "/" },
@@ -19,35 +22,45 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
 
+  // Navbar background via ScrollTrigger
   useEffect(() => {
-    const handleScroll = () => {
-      // Handle navbar background
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-      // Handle active section
-      const sections = navItems.map((item) => item.href.substring(1));
-      let currentSection = "inicio";
+    const bgTrigger = ScrollTrigger.create({
+      start: "top+=20 top",
+      onEnter: () => setIsScrolled(true),
+      onLeaveBack: () => setIsScrolled(false),
+    });
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Adjust offset as needed, e.g., considering navbar height
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-            break;
-          }
-        }
-      }
-      setActiveSection(currentSection);
+    return () => {
+      bgTrigger.kill();
     };
+  }, []);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  // Active section detection via ScrollTrigger
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    const sections = navItems
+      .map((item) => item.href.substring(1))
+      .filter(Boolean); // exclude "/" → ""
+
+    const triggers = sections.map((section) => {
+      const el = document.getElementById(section);
+      if (!el) return null;
+
+      return ScrollTrigger.create({
+        trigger: el,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => setActiveSection(section),
+        onEnterBack: () => setActiveSection(section),
+      });
+    });
+
+    return () => {
+      triggers.forEach((t) => t?.kill());
+    };
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -65,11 +78,47 @@ const Navbar = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    // Smooth scroll to section
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+
+    // Helper: fire arrival pulse on a DOM element
+    const playArrivalPulse = (el: HTMLElement) => {
+      gsap.fromTo(
+        el,
+        { scale: 1.015, filter: "brightness(1.12)" },
+        {
+          scale: 1,
+          filter: "brightness(1)",
+          duration: 0.6,
+          ease: "power2.out",
+        },
+      );
+    };
+
+    // Scroll to top for home link
+    if (href === "/") {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: 0 },
+        ease: "power3.inOut",
+      });
+      setActiveSection("inicio");
+      return;
     }
+
+    // Extract section id from href (e.g. "#nosotros" → "nosotros")
+    const sectionId = href.startsWith("#") ? href.substring(1) : href;
+
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: {
+        y: href,
+        offsetY: 80,
+      },
+      ease: "power3.inOut",
+      onComplete: () => {
+        const target = document.getElementById(sectionId);
+        if (target) playArrivalPulse(target);
+      },
+    });
   };
 
   return (
@@ -100,8 +149,13 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
                   className={`font-sora text-mediador hover:text-mediador text-md transition-colors duration-200 relative group ${
-                    activeSection === item.href.substring(1)
+                    activeSection === item.href.substring(1) ||
+                    (item.href === "/" && activeSection === "inicio")
                       ? "font-medium"
                       : "font-thin"
                   }`}
@@ -111,7 +165,15 @@ const Navbar = () => {
                 </Link>
               ))}
               <Button className="font-sora font-medium text-md">
-                <Link href="#contacto">Hablemos</Link>
+                <a
+                  href="#contacto"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick("#contacto");
+                  }}
+                >
+                  Hablemos
+                </a>
               </Button>
             </div>
 
@@ -194,7 +256,8 @@ const Navbar = () => {
                       handleNavClick(item.href);
                     }}
                     className={`group flex items-center justify-between py-4 px-4 rounded-xl text-mediador hover:bg-mediador/10 transition-all duration-200 ${
-                      activeSection === item.href.substring(1)
+                      activeSection === item.href.substring(1) ||
+                      (item.href === "/" && activeSection === "inicio")
                         ? "font-medium bg-mediador/5"
                         : "font-thin"
                     }`}
@@ -210,9 +273,15 @@ const Navbar = () => {
           {/* Hablemos Button */}
           <div className="p-2">
             <Button className="w-full">
-              <Link href="#contacto">
+              <a
+                href="#contacto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#contacto");
+                }}
+              >
                 Hablemos
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

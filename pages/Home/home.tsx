@@ -6,37 +6,35 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import Clients from "@/components/Clients/Clients";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
-import ScrollReveal from "@/components/scroll-reveal/ScrollReveal";
+import ScrollProvider from "@/components/scroll/ScrollProvider";
 
 const Home = () => {
   return (
-    <div className="bg-page min-h-screen scroll-smooth">
-      <Navbar />
-      <main className="">
-        <div>
-          <ScrollReveal>
+    <div className="bg-page min-h-screen">
+      <ScrollProvider>
+        <Navbar />
+        <main>
+          <div>
             <Hero id="inicio" />
-          </ScrollReveal>
-          <ScrollReveal>
-            <AboutUs id="nosotros" />
-          </ScrollReveal>
-          <ScrollReveal>
-            <Services id="servicios" />
-          </ScrollReveal>
-          <ScrollReveal>
-            <Coverage id="cobertura" />
-          </ScrollReveal>
-          <ScrollReveal>
-            <Clients id="clientes" />
-          </ScrollReveal>
-          <ScrollReveal>
-            <Contact id="contacto" />
-          </ScrollReveal>
-          <ScrollReveal>
+            <div className="reveal">
+              <AboutUs id="nosotros" />
+            </div>
+            <div className="reveal">
+              <Services id="servicios" />
+            </div>
+            <div className="reveal">
+              <Coverage id="cobertura" />
+            </div>
+            <div className="reveal">
+              <Clients id="clientes" />
+            </div>
+            <div className="reveal">
+              <Contact id="contacto" />
+            </div>
             <Footer />
-          </ScrollReveal>
-        </div>
-      </main>
+          </div>
+        </main>
+      </ScrollProvider>
     </div>
   );
 };
