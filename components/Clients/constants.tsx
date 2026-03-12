@@ -7,11 +7,6 @@ export const CLIENTS = [
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Capo.png`,
   },
   {
-    id: 2,
-    name: "Club La Gaceta",
-    image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Club La Gaceta.png`,
-  },
-  {
     id: 3,
     name: "Colegio de Abogados de Tucumán",
     image: `${COMPANIES_IMAGE_BASE}/Logos Clientes_Colegio de Abogadosd de Tucuman.png`,
